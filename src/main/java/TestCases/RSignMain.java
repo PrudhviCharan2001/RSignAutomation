@@ -39,6 +39,7 @@ public class RSignMain extends BaseTestClass {
 		logger = report.createTest("create RSign Test : ");
 		invokeBrowser("chrome");
 		Loginpage loginpage = new Loginpage(driver, logger);
+		System.out.println("Hiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		homepage = loginpage.sso();
 		topmenu = homepage.topmenu();
 		templatepage = topmenu.templatespage();
