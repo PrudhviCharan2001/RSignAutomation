@@ -52,16 +52,24 @@ public class RSignMain extends BaseTestClass {
 		//templatepage=templatepage.createrule(dataTable.get("Rulename"));
 		//envelopespage=templatepage.consumerule(dataTable.get("Rulename"));
 		sendpage=topmenu.sendpage();
+		System.out.println("start step-1");
 		step2=Sendpage.step1();
+		System.out.println("start step-2");
 		step2.allcontrols();
+		System.out.println("envelope sent");
 		envelopespage=step2.sendbutton();
 		yahoosign yahoo=new yahoosign(driver,logger);
+		System.out.println("yahoo login");
 		yahoo.recipientsigninyahoo();
+		System.out.println("Signing completed");
 		//yahoo.reverifysigner();
 		topmenu=envelopespage.topmenu();
 		// topmenu = templatepage.topmenu();
+		System.out.println("Click on settings");
 		settingspage = topmenu.personalsettings();
+		System.out.println("clicked");
 		settingspage.changelanguage(i);
+		System.out.println("Language changed");
 		i++;
 	}
 	

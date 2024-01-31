@@ -29,9 +29,9 @@ public class BaseTestClass {
 		try {
 
 			if (browserName.equalsIgnoreCase("chrome")) {
-				ChromeOptions option = new ChromeOptions();
-			    option.addArguments("--headless"); 
-				driver = new ChromeDriver(option);
+//				ChromeOptions option = new ChromeOptions();
+//			    option.addArguments("--headless"); 
+				driver = new ChromeDriver();
 //			} else if (browserName.equalsIgnoreCase("Mozila")) {
 //				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver");
 //				driver = new FirefoxDriver();

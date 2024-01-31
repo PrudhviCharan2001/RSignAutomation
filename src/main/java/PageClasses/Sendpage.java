@@ -58,7 +58,9 @@ public TopMenuClass topmenu() {
 		next.click();
 	}
 	public static Step2 step1() throws Exception{
-		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		
+		adddoc();
 		addrecipientdetails("prudhvicharanv@hotmail.com","prudhvicharanv");
 		subject("signing document","test");
 		Thread.sleep(3000);

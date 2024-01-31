@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -886,6 +887,25 @@ public class PageBaseClass extends BaseTestClass {
 		r.keyRelease(KeyEvent.VK_ENTER);
 		waitForPageLoad();
 	}
+public static void adddoc() throws InterruptedException {
+	adddocument.click();
+	Thread.sleep(2000);
+   driver.findElement(By.xpath("//*[@id='SkyDriveUpload']")).click();
+   Thread.sleep(2000);
+   ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+	driver.switchTo().window(tab.get(1));
+	Thread.sleep(2000);
+//	driver.findElement(By.xpath("//*[@type='email']")).sendKeys("prudhvicharanv@hotmail.com");
+//	driver.findElement(By.xpath("//*[@type='submit']")).click();
+//	driver.findElement(By.xpath("//*[@type='password']")).sendKeys("Charan@2001");
+//	driver.findElement(By.xpath("//*[@type='submit']")).click();
+//	driver.findElement(By.xpath("//*[@type='submit']")).click();
+//	Thread.sleep(12000);
+	driver.findElement(By.xpath("(//*[text()='API contract &.pdf'])[1]")).click();
+	driver.findElement(By.xpath("//*[text()='Select']")).click();
+	Thread.sleep(4000);
+	driver.switchTo().window(tab.get(0));
+}
 
 	public static void subject(String subjectname, String message) {
 		subject.sendKeys(subjectname);
