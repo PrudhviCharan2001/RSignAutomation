@@ -1,6 +1,7 @@
 package PageClasses;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +17,7 @@ public class Settingspage extends PageBaseClass {
 	public TopMenuClass topmenu;
 	@FindBy(xpath = "/html/body/div[1]/div[1]/main/div[2]/div/div[3]/div[2]/div[1]/form/ul/li[6]/div/div[1]/select")
 	public WebElement languagedropdown;
-		@FindBy(xpath = "//*[@id='btnSaveAdvanceSettings']")
+		@FindBy(xpath = "//*[@id='UserSave']")
 		public WebElement savesettings;
 	public Settingspage(WebDriver driver, ExtentTest logger) {
 		super(driver, logger);
@@ -28,6 +29,8 @@ public class Settingspage extends PageBaseClass {
 		languagedropdown.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='LanguageCode']/option["+languagenumber+"]")).click();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,1000)", "");
 		Thread.sleep(2000);
 		savesettings.click();
 		

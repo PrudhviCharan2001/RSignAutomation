@@ -46,7 +46,7 @@ public class PageBaseClass extends BaseTestClass {
 	public static WebElement yahoopassword;
 	@FindBy(xpath = "//*[@value='Sign in']")
 	public static WebElement yahoologinbtn;
-	@FindBy(xpath = "//*[contains(@id,'idSIButton')]")
+	@FindBy(xpath = "//*[contains(@type,'submit')]")
 	public static WebElement staysignedin;
 	@FindBy(xpath = "(//*[@title='rsign@rsign.rpost.net'])[1]")
 	public static WebElement openmail;

@@ -29,6 +29,12 @@ public class Step2 extends PageBaseClass{
 	}
 	public  Envelopespage sendbutton() {
 		sendbutton.click();
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Envelopespage envelopestab = new Envelopespage(driver,logger);
 		PageFactory.initElements(driver, envelopestab);
 		return envelopestab;

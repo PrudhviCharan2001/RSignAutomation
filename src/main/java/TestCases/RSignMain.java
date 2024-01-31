@@ -39,30 +39,30 @@ public class RSignMain extends BaseTestClass {
 		logger = report.createTest("create RSign Test : ");
 		invokeBrowser("chrome");
 		Loginpage loginpage = new Loginpage(driver, logger);
-		System.out.println("Hiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		homepage = loginpage.sso();
+	homepage = loginpage.sso();
 		topmenu = homepage.topmenu();
-		templatepage = topmenu.templatespage();
-		templatepage = templatepage.createmultistatictemp(dataTable.get("MultiSignerStaticTemplatename"));
-		templatepage.consumemultisignerstatictemplate(dataTable.get("MultiSignerStaticTemplatename"));
-		// templatepage=templatepage.createstatictemplate(dataTable.get("StaticTemplatename"));
+//		templatepage = topmenu.templatespage();
+		//templatepage = templatepage.createmultistatictemp(dataTable.get("MultiSignerStaticTemplatename"));
+		//templatepage.consumemultisignerstatictemplate(dataTable.get("MultiSignerStaticTemplatename"));
+		 //templatepage=templatepage.createstatictemplate(dataTable.get("StaticTemplatename"));
+		// Thread.sleep(15000);
 		//templatepage.consumestatictemplate(dataTable.get("StaticTemplatename"));
 		//templatepage=templatepage.createtemplate(dataTable.get("NonStaticTemplatename"));
 		//envelopespage=templatepage.consumetemplate(dataTable.get("NonStaticTemplatename"));
 		//templatepage=templatepage.createrule(dataTable.get("Rulename"));
 		//envelopespage=templatepage.consumerule(dataTable.get("Rulename"));
-		//sendpage=topmenu.sendpage();
-		//step2=Sendpage.step1();
-		//step2.allcontrols();
-		//envelopespage=step2.sendbutton();
-		//yahoosign yahoo=new yahoosign(driver,logger);
-		//yahoo.recipientsigninyahoo();
+		sendpage=topmenu.sendpage();
+		step2=Sendpage.step1();
+		step2.allcontrols();
+		envelopespage=step2.sendbutton();
+		yahoosign yahoo=new yahoosign(driver,logger);
+		yahoo.recipientsigninyahoo();
 		//yahoo.reverifysigner();
-		//topmenu=envelopespage.topmenu();
-		//topmenu = templatepage.topmenu();
-		//settingspage = topmenu.personalsettings();
-		//settingspage.changelanguage(i);
-		//i++;
+		topmenu=envelopespage.topmenu();
+		// topmenu = templatepage.topmenu();
+		settingspage = topmenu.personalsettings();
+		settingspage.changelanguage(i);
+		i++;
 	}
 	
 	@DataProvider

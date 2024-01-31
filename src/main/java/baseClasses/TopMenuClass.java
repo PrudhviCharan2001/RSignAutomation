@@ -22,25 +22,25 @@ public class TopMenuClass extends PageBaseClass {
 		super(driver, logger);
 	}
 
-	@FindBy(xpath = "/html/body/header/nav/div/ul/li[2]/a/span")
+	@FindBy(xpath = "//*[@href='/Envelope/Index']")
 	public WebElement sendpage;
 
 	@FindBy(xpath = "/html/body/header/nav/div/div/div/span")
 	public WebElement signout;
 	
-	@FindBy(xpath = "/html/body/header/nav/div/ul/li[3]/a/span")
+	@FindBy(xpath = "//*[@href='/DocumentPackage/DocumentPackageIndex']")
 	public WebElement envelopespage;
 	
-	@FindBy(xpath = "/html/body/header/nav/div/ul/li[4]/a")
+	@FindBy(xpath = "//*[@href='/Template/Index']")
 	public WebElement templatespage;
 	
-	@FindBy(xpath = "/html/body/header/nav/div/ul/li[5]/a")
+	@FindBy(xpath = "//*[@href='/Settings/Index']")
 	public WebElement settingspage;
 	
-	@FindBy(xpath = "/html/body/header/nav/div/ul/li[1]/a/span")
+	@FindBy(xpath = "//*[@href='/Home/Index']")
 	public WebElement homepage;
 	
-	@FindBy(xpath = "/html/body/header/nav/div/div/div/a[1]/span[1]/strong")
+	@FindBy(xpath = "//*[@id='alink']/span[1]/strong")
 	public WebElement personalsettings;
 	
 	public Loginpage singOutApplication() {

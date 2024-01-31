@@ -203,8 +203,8 @@ public class Templatespage extends PageBaseClass {
 		Thread.sleep(1000);
 		addrole.click();
 		rolename.sendKeys("QA");
-		deliverymode.click();
-		emailandmobiledeliverymode.click();
+		//deliverymode.click();
+		//emailandmobiledeliverymode.click();
 		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
 		Sendpage.subject(templatenametable, templatenametable);
 		templatename.sendKeys(templatenametable);
@@ -230,7 +230,7 @@ public class Templatespage extends PageBaseClass {
 		driver.get(staticlinktext);
 		waitForPageLoad();
 		ss_ctb_email.sendKeys("prudhvicharanv@yahoo.com");
-		ss_ctb_mobile.sendKeys("7032997552");
+		//ss_ctb_mobile.sendKeys("7032997552");
 		ss_ctb_acceptterms.click();
 		ss_ctb_nextbtn.click();
 		waitForPageLoad();
@@ -278,12 +278,12 @@ public class Templatespage extends PageBaseClass {
 		for (int i = 1; i <= count; i++) {
 			addrole.click();
 			driver.findElement(By.xpath("(//*[contains(@class,'roleName')])[" + i + "]")).sendKeys("QA" + i);
-			driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown deliveryMode')])[" + i + "]")).click();
-			driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown deliveryMode')]/ul/li[3])[" + i + "]"))
-					.click();
+			//driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown deliveryMode')])[" + i + "]")).click();
+			//driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown deliveryMode')]/ul/li[3])[" + i + "]"))
+					//.click();
 		}
 		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
-		Sendpage.subject("multisigner static template", "multisigner static template");
+		subject("multisigner static template", "multisigner static template");
 		templatename.sendKeys(templatenametable);
 		templatedescription.sendKeys("multisigner static template");
 		enablestatictemplate.click();

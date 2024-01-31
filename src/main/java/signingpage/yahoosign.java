@@ -65,10 +65,11 @@ ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 	selectDateIncalendar("11/09/2019");
 	driver.findElement(By.xpath("/html/body/div[1]/main/div/div[3]/div/div/div/div/div[1]/div[1]/div[12]/div/div[1]/textarea")).sendKeys("hello");
 	driver.findElement(By.xpath("//*[@id='btnSubmitEnvelope']")).click();
-//	((JavascriptExecutor) driver).executeScript("window.close()");
-//	driver.switchTo().window(tab.get(1));
-//	((JavascriptExecutor) driver).executeScript("window.close()");
-//	driver.switchTo().window(tab.get(0));
+	((JavascriptExecutor) driver).executeScript("window.close()");
+	driver.switchTo().window(tab.get(1));
+	((JavascriptExecutor) driver).executeScript("window.close()");
+	driver.switchTo().window(tab.get(0));
+	Thread.sleep(5000);
 	}
 public void reverifysigner() throws InterruptedException, AWTException {
 	ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());

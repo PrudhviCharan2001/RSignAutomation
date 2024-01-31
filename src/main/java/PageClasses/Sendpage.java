@@ -7,6 +7,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,11 +28,11 @@ public class Sendpage extends PageBaseClass{
 	}
 	@FindBy(xpath = "/html/body/div[1]/div[1]/form/ul/li[2]/div/div[2]/a[1]")
 	public static WebElement addrecipient;
-	@FindBy(xpath = "/html/body/div[1]/div[1]/form/ul/li[2]/div/table/tbody/tr/td[5]/span/input")
+	@FindBy(xpath = "(//*[contains(@class,'reciptName ')])")
 	public static WebElement recipientname;
-	@FindBy(xpath = "/html/body/div[1]/div[1]/form/ul/li[2]/div/table/tbody/tr/td[4]/span/input")
+	@FindBy(xpath = "(//*[contains(@class,'reciptEmail')])")
 	public static WebElement recipientemail;
-	@FindBy(xpath = "/html/body/div[1]/div[1]/form/ul/li[2]/div/div[1]/label/span")
+	@FindBy(xpath = "(//*[contains(@for,'chbSequence')])")
 	public static WebElement signinsequence;
 	@FindBy(xpath = "//*[@id='btnNext']")
 	public static WebElement next;
@@ -47,7 +48,7 @@ public class Sendpage extends PageBaseClass{
 	public static void addrecipientdetails(String name,String email) {
 		recipientname.sendKeys(email);
 		recipientemail.sendKeys(name);
-		driver.findElement(By.xpath("/html/body/div[1]/div[1]/form/ul/li[2]/div/table/tbody/tr/td[5]/table/tbody/tr/td[2]/span/input")).sendKeys("7032997552");
+		//driver.findElement(By.xpath("/html/body/div[1]/div[1]/form/ul/li[2]/div/table/tbody/tr/td[5]/table/tbody/tr/td[2]/span/input")).sendKeys("7032997552");
 	}
 public TopMenuClass topmenu() {
 		return topmenu;
@@ -58,8 +59,9 @@ public TopMenuClass topmenu() {
 	}
 	public static Step2 step1() throws Exception{
 		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
-		addrecipientdetails("prudhvi","prudhvicharanv@hotmail.com");
+		addrecipientdetails("prudhvicharanv@hotmail.com","prudhvicharanv");
 		subject("signing document","test");
+		Thread.sleep(3000);
 		next();
 		Step2 step2 = new Step2(driver,logger);
 		PageFactory.initElements(driver, step2);

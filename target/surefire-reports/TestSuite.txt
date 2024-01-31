@@ -1,0 +1,77 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 14, Errors: 0, Skipped: 0, Time elapsed: 8,126.515 s <<< FAILURE! - in TestSuite
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 151.158 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+disconnected: unable to send message to renderer
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=120.0.6099.227)
+Build info: version: '4.14.1', revision: '03f8ede370'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c7733564da5a66bebd0d52bc391a9e09, findElement {using=xpath, value=(//*[@id='Sign'])[2]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.227, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\RPLPT\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52425}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52425/devtoo..., se:cdpVersion: 120.0.6099.227, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c7733564da5a66bebd0d52bc391a9e09
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 7,264.003 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: 
+timeout: Timed out receiving message from renderer: -7140.654
+  (Session info: chrome=120.0.6099.227)
+Build info: version: '4.14.1', revision: '03f8ede370'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3164f93fee9651c50197d2eadc0db27d, get {url=https://app3.use.rsign.com/Account/LogOn}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.227, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: C:\Users\RPLPT\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52501}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52501/devtoo..., se:cdpVersion: 120.0.6099.227, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3164f93fee9651c50197d2eadc0db27d
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:43)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 121.046 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 39.788 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 41.537 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 57.11 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 40.769 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 47.53 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 49.875 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 109.351 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 49.25 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 45.345 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 54.117 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
+rsignimanagegerman(TestCases.RSignMain)  Time elapsed: 52.708 s  <<< FAILURE!
+java.lang.IllegalStateException: cannot open system clipboard
+	at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:46)
+
