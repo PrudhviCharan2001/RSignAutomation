@@ -224,7 +224,7 @@ public class PageBaseClass extends BaseTestClass {
 	public static void addrecipientdetails(String name, String email) {
 		recipientname.sendKeys(email);
 		recipientemail.sendKeys(name);
-		recipientmobile.sendKeys("7032997552");
+		//recipientmobile.sendKeys("7032997552");
 	}
 
 	/****************** Accept Java Script Alert ***********************/
@@ -887,6 +887,34 @@ public class PageBaseClass extends BaseTestClass {
 		r.keyRelease(KeyEvent.VK_ENTER);
 		waitForPageLoad();
 	}
+public static void adddocwithlogin() throws InterruptedException {
+	adddocument.click();
+	Thread.sleep(2000);
+   driver.findElement(By.xpath("//*[@id='SkyDriveUpload']")).click();
+   Thread.sleep(2000);
+   ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+	driver.switchTo().window(tab.get(1));
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@type='email']")).sendKeys("prudhvicharanv@hotmail.com");
+	driver.findElement(By.xpath("//*[@type='submit']")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@type='password']")).sendKeys("Charan@2001");
+	driver.findElement(By.xpath("//*[@type='submit']")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[@type='submit']")).click();
+	Thread.sleep(12000);
+	driver.findElement(By.xpath("(//*[text()='API contract &.pdf'])[1]")).click();
+	driver.findElement(By.xpath("//*[text()='Select']")).click();
+	Thread.sleep(4000);
+	driver.switchTo().window(tab.get(0));
+}
+public static void robot() throws AWTException {
+	Robot r= new Robot();
+	r.keyPress(KeyEvent.VK_WINDOWS);
+	r.keyPress(KeyEvent.VK_DOWN);
+	r.keyRelease(KeyEvent.VK_WINDOWS);
+	r.keyRelease(KeyEvent.VK_DOWN);
+}
 public static void adddoc() throws InterruptedException {
 	adddocument.click();
 	Thread.sleep(2000);
@@ -915,7 +943,7 @@ public static void adddoc() throws InterruptedException {
 	}
 
 	public static void next() throws InterruptedException {
-		driver.findElement(By.xpath("/html/body/div[7]/div/div[2]/span")).click();
+		driver.findElement(By.xpath("//*[@id='step1NextButton']")).click();
 		next.click();
 	}
 

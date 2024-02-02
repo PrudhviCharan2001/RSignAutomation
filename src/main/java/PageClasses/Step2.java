@@ -41,18 +41,18 @@ public class Step2 extends PageBaseClass{
 	}
 	public void allcontrols() throws InterruptedException {
 		signature();
-		initial();
+		initial();	
 		dateandtimestamp();
-		name();
-		title();
-		company();
-		email();
-		dropdown();
+		name();	
+		title();	
+		company();	
+		email();	
+		dropdown();	
 		checkbox();
 		//hyperlink();
-		radiobutton();
-		date();	
-		text();
+		radiobutton();	
+		date();		
+		text();	
 		//label();	
 	}
 }

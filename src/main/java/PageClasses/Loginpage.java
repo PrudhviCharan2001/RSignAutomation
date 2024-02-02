@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -71,6 +72,7 @@ public Homepage sso() throws InterruptedException {
 	driver.findElement(By.id("idSIButton9")).click();
 	driver.findElement(By.xpath("/html/body/div/form/div/div/div[2]/div[1]/div/div/div/div/div/div[3]/div/div[2]/div/div[3]/div[2]/div/div/div[2]/input")).click();
 	driver.switchTo().window(tab.get(0));
+	waitForPageLoad();
 	Homepage sendpage=new Homepage(driver,logger);
 	PageFactory.initElements(driver, sendpage);
 	return sendpage;

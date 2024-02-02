@@ -1,19 +1,24 @@
 package baseClasses;
 
+import java.awt.AWTException;
+import java.awt.Dimension;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
+import org.openqa.selenium.interactions.Actions;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-
 
 import utilities.ExtentReportManager;
 
@@ -23,15 +28,17 @@ public class BaseTestClass {
 	public ExtentReports report = ExtentReportManager.getReportInstance();
 	public ExtentTest logger;
 
-	/****************** Invoke Browser ***********************/
-	public void invokeBrowser(String browserName) {
+	/****************** Invoke Browser 
+	 * @throws AWTException ***********************/
+	public void invokeBrowser(String browserName) throws AWTException {
 
 		try {
 
 			if (browserName.equalsIgnoreCase("chrome")) {
 //				ChromeOptions option = new ChromeOptions();
-//			    option.addArguments("--headless"); 
+//				 option.addArguments("--headless");
 				driver = new ChromeDriver();
+				
 //			} else if (browserName.equalsIgnoreCase("Mozila")) {
 //				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver");
 //				driver = new FirefoxDriver();
@@ -52,6 +59,7 @@ public class BaseTestClass {
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		
 	}
 
 

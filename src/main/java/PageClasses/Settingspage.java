@@ -1,5 +1,7 @@
 package PageClasses;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -33,10 +35,14 @@ public class Settingspage extends PageBaseClass {
 		jse.executeScript("window.scrollBy(0,1000)", "");
 		Thread.sleep(2000);
 		savesettings.click();
-		
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//*[@class='done btn'])[2]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(12000);
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(1));
+		driver.close();
+		driver.switchTo().window(tabs.get(0));
+		
 	driver.close();
 	}
 	public TopMenuClass topmenu() {

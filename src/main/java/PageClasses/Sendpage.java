@@ -57,12 +57,12 @@ public TopMenuClass topmenu() {
 		//driver.findElement(By.xpath("/html/body/div[7]/div/div[2]/span")).click();
 		next.click();
 	}
-	public static Step2 step1() throws Exception{
+	public static Step2 step1(String subject, String body) throws Exception{
 		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
 		
 		adddoc();
 		addrecipientdetails("prudhvicharanv@hotmail.com","prudhvicharanv");
-		subject("signing document","test");
+		subject(subject,body);
 		Thread.sleep(3000);
 		next();
 		Step2 step2 = new Step2(driver,logger);

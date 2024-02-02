@@ -5,6 +5,8 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
@@ -108,6 +110,8 @@ public class Templatespage extends PageBaseClass {
 	public static WebElement invitesignersselectrole;
 	@FindBy(xpath = "//*[@id='btnInvitesignerSave']")
 	public static WebElement invitesignersubmit;
+	public static String tempname;
+	public static String rulename;
 
 	public Templatespage(WebDriver driver, ExtentTest logger) {
 		super(driver, logger);
@@ -115,19 +119,25 @@ public class Templatespage extends PageBaseClass {
 		PageFactory.initElements(driver, topmenu);
 	}
 
-	public Templatespage createtemplate(String tempname) throws AWTException, InterruptedException {
+	public Templatespage createtemplate(String temp) throws AWTException, InterruptedException {
+		 LocalDateTime currentDateTime = LocalDateTime.now();
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	        String formattedDateTime = currentDateTime.format(formatter);
+	       tempname=temp+ " "+formattedDateTime;
 		createtemplatenbtn.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		addrole.click();
+		Thread.sleep(2000);
 		rolename.sendKeys("QA");
-		deliverymode.click();
-		emailandmobiledeliverymode.click();
-		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		//	deliverymode.click();
+		//emailandmobiledeliverymode.click();
+		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		adddoc();
 		Sendpage.subject(tempname, tempname);
 		templatename.sendKeys(tempname);
 		templatedescription.sendKeys(tempname);
 		disablestatictemplate.click();
-		next();
+		driver.findElement(By.xpath("//*[@id='btnNext']")).click();
 		allcontrols();
 		saveas.click();
 		saveastemplate.click();
@@ -137,7 +147,7 @@ public class Templatespage extends PageBaseClass {
 		return templatepage;
 	}
 
-	public Envelopespage consumetemplate(String tempname) throws AWTException, InterruptedException {
+	public Envelopespage consumetemplate(String temp) throws AWTException, InterruptedException {
 		tempnametext = templatenametext.getText();
 		topmenu.sendpage();
 		addtemplatebtn.click();
@@ -150,25 +160,33 @@ public class Templatespage extends PageBaseClass {
 		waitForPageLoad();
 		addrecipientdetails("prudhvicharanv@hotmail.com", "prudhvi");
 		sendtemplate.click();
+//		driver.findElement(By.id("step1NextButton")).click();
+//		Thread.sleep(3000);
+//		driver.findElement(By.id("btnSend")).click();
 		Thread.sleep(5000);
 		Envelopespage envelopespage = new Envelopespage(driver, logger);
 		PageFactory.initElements(driver, envelopespage);
 		return envelopespage;
 	}
 
-	public Templatespage createrule(String rulename) throws AWTException, InterruptedException {
+	public Templatespage createrule(String rule) throws AWTException, InterruptedException {
 		createtemplatenbtn.click();
 		Thread.sleep(1000);
 		addrole.click();
 		rolename.sendKeys("QA");
-		deliverymode.click();
-		emailandmobiledeliverymode.click();
-		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		 LocalDateTime currentDateTime = LocalDateTime.now();
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	        String formattedDateTime = currentDateTime.format(formatter);
+	       rulename=rule+ " "+formattedDateTime;
+		//deliverymode.click();
+		//emailandmobiledeliverymode.click();
+		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		adddoc();
 		Sendpage.subject(rulename, rulename);
 		templatename.sendKeys(rulename);
 		templatedescription.sendKeys(rulename);
 		disablestatictemplate.click();
-		next();
+		driver.findElement(By.xpath("//*[@id='btnNext']")).click();
 		allcontrols();
 		saveas.click();
 		saveasrule.click();
@@ -179,7 +197,7 @@ public class Templatespage extends PageBaseClass {
 		return templatepage;
 	}
 
-	public Envelopespage consumerule(String rulename) throws Exception {
+	public Envelopespage consumerule(String rule) throws Exception {
 		topmenu().sendpage();
 		addrule.click();
 		searchrule.sendKeys(rulename);
@@ -189,32 +207,49 @@ public class Templatespage extends PageBaseClass {
 		ruledonebtn.click();
 		Thread.sleep(5000);
 		waitForPageLoad();
-		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		adddoc();
 		addrecipientdetails("prudhvicharanv@hotmail.com", "prudhvi");
-		next();
+		Thread.sleep(5000);
+		//next();
+		driver.findElement(By.xpath("//*[@id='step1NextButton']")).click();
+		Thread.sleep(3000);
 		sendbutton();
 		Envelopespage envelopespage = new Envelopespage(driver, logger);
 		PageFactory.initElements(driver, envelopespage);
 		return envelopespage;
 	}
-
+	public static String statictemplate;
 	public Templatespage createstatictemplate(String templatenametable) throws AWTException, InterruptedException {
 		createtemplatenbtn.click();
+		 LocalDateTime currentDateTime = LocalDateTime.now();
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	        String formattedDateTime = currentDateTime.format(formatter);
+	       statictemplate=templatenametable+ " "+formattedDateTime;
 		Thread.sleep(1000);
 		addrole.click();
+		Thread.sleep(1000);
 		rolename.sendKeys("QA");
+		Thread.sleep(1000);
+		Thread.sleep(1000);
 		//deliverymode.click();
 		//emailandmobiledeliverymode.click();
-		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
-		Sendpage.subject(templatenametable, templatenametable);
-		templatename.sendKeys(templatenametable);
-		templatedescription.sendKeys(templatenametable);
+		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		adddoc();
+		Thread.sleep(1000);
+		Sendpage.subject(statictemplate, statictemplate);
+		Thread.sleep(1000);
+		templatename.sendKeys(statictemplate);
+		templatedescription.sendKeys(statictemplate);
 		enablestatictemplate.click();
-		next();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id='btnNext']")).click();
+		Thread.sleep(7000);
 		allcontrols();
 		saveas.click();
 		saveastemplate.click();
 		waitForPageLoad();
+		Thread.sleep(10000);
 		Templatespage templatepage = new Templatespage(driver, logger);
 		PageFactory.initElements(driver, templatepage);
 		return templatepage;
@@ -222,14 +257,14 @@ public class Templatespage extends PageBaseClass {
 
 	public Templatespage consumestatictemplate(String templatenametable) throws AWTException, InterruptedException {
 		driver.findElement(By.xpath("//*[@class='templateListTBody']/tr/td[@class='templateName']/div[text()='"
-				+ templatenametable + "']//parent::div//parent::td//parent::tr/td[8]/a")).click();
+				+ statictemplate + "']//parent::div//parent::td//parent::tr/td[8]/a")).click();
 		String staticlinktext = copystaticlink.getText();
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 		driver.get(staticlinktext);
 		waitForPageLoad();
-		ss_ctb_email.sendKeys("prudhvicharanv@yahoo.com");
+		ss_ctb_email.sendKeys("prudhvicharanv@hotmail.com");
 		//ss_ctb_mobile.sendKeys("7032997552");
 		ss_ctb_acceptterms.click();
 		ss_ctb_nextbtn.click();
@@ -251,6 +286,7 @@ public class Templatespage extends PageBaseClass {
 		selectDateIncalendar("11/09/2019");
 		textcontrol.sendKeys("signing");
 		finishbtn.click();
+		Thread.sleep(3000);
 //		sendconfirmationbtn.click();
 //		((JavascriptExecutor) driver).executeScript("window.open()");
 //			driver.switchTo().window(tabs.get(1));
@@ -271,9 +307,13 @@ public class Templatespage extends PageBaseClass {
 	}
 
 	static int count = 2;
-
+	public static String multistatictemplate;
 	public Templatespage createmultistatictemp(String templatenametable) throws Exception {
 		createtemplatenbtn.click();
+		LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = currentDateTime.format(formatter);
+       multistatictemplate=templatenametable+ " "+formattedDateTime;
 		Thread.sleep(1000);
 		for (int i = 1; i <= count; i++) {
 			addrole.click();
@@ -282,12 +322,16 @@ public class Templatespage extends PageBaseClass {
 			//driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown deliveryMode')]/ul/li[3])[" + i + "]"))
 					//.click();
 		}
-		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
-		subject("multisigner static template", "multisigner static template");
-		templatename.sendKeys(templatenametable);
-		templatedescription.sendKeys("multisigner static template");
+		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		waitForPageLoad();
+		adddoc();
+		waitForPageLoad();
+		subject(multistatictemplate, multistatictemplate);
+		templatename.sendKeys(multistatictemplate);
+		templatedescription.sendKeys(multistatictemplate);
 		enablestatictemplate.click();
-		next();
+		driver.findElement(By.xpath("//*[@id='btnNext']")).click();
+		waitForPageLoad();
 		for (int i = 1; i <= 2; i++) {
 			allcontrols(i);
 		}
@@ -302,7 +346,7 @@ public class Templatespage extends PageBaseClass {
 	public Templatespage consumemultisignerstatictemplate(String templatenametable)
 			throws AWTException, InterruptedException {
 		driver.findElement(By.xpath("//*[@class='templateListTBody']/tr/td[@class='templateName']/div[text()='"
-				+ templatenametable + "']//parent::div//parent::td//parent::tr/td[8]/a")).click();
+				+ multistatictemplate + "']//parent::div//parent::td//parent::tr/td[8]/a")).click();
 		String multistaticlinktext = copystaticlink.getText();
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
@@ -312,7 +356,7 @@ public class Templatespage extends PageBaseClass {
 		Select select = new Select(selectrole);
 		select.selectByIndex(1);
 		ss_ctb_email.sendKeys("prudhvicharanv@hotmail.com");
-		ss_ctb_mobile.sendKeys("7032997552");
+		//ss_ctb_mobile.sendKeys("7032997552");
 		ss_ctb_acceptterms.click();
 		ss_ctb_nextbtn.click();
 		waitForPageLoad();
@@ -323,7 +367,7 @@ public class Templatespage extends PageBaseClass {
 		sel.selectByIndex(1);
 		invitesignername.sendKeys("prudhvi");
 		invitesigneremail.sendKeys("vulliprudhvicharan@yahoo.com");
-		invitesignermobile.sendKeys("6300431674");
+		//invitesignermobile.sendKeys("6300431674");
 		invitesignermydetails.click();
 		invitesignermyname.sendKeys("charan");
 		invitesignersubmit.click();
