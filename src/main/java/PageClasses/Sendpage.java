@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentTest;
 import baseClasses.PageBaseClass;
 import baseClasses.TopMenuClass;
 
-public class Sendpage extends PageBaseClass{
+public class Sendpage extends PageBaseClass {
 	public TopMenuClass topmenu;
 
 	public Sendpage(WebDriver driver, ExtentTest logger) {
@@ -26,6 +26,7 @@ public class Sendpage extends PageBaseClass{
 		topmenu = new TopMenuClass(driver, logger);
 		PageFactory.initElements(driver, topmenu);
 	}
+
 	@FindBy(xpath = "/html/body/div[1]/div[1]/form/ul/li[2]/div/div[2]/a[1]")
 	public static WebElement addrecipient;
 	@FindBy(xpath = "(//*[contains(@class,'reciptName ')])")
@@ -45,27 +46,29 @@ public class Sendpage extends PageBaseClass{
 	@FindBy(xpath = "/html/body/div[1]/div[1]/form/ul/li[1]/div/div[1]/a[4]")
 	public static WebElement addtemplategroup;
 
-	public static void addrecipientdetails(String name,String email) {
+	public static void addrecipientdetails(String name, String email) {
 		recipientname.sendKeys(email);
 		recipientemail.sendKeys(name);
-		//driver.findElement(By.xpath("/html/body/div[1]/div[1]/form/ul/li[2]/div/table/tbody/tr/td[5]/table/tbody/tr/td[2]/span/input")).sendKeys("7032997552");
+		// driver.findElement(By.xpath("/html/body/div[1]/div[1]/form/ul/li[2]/div/table/tbody/tr/td[5]/table/tbody/tr/td[2]/span/input")).sendKeys("7032997552");
 	}
-public TopMenuClass topmenu() {
+
+	public TopMenuClass topmenu() {
 		return topmenu;
 	}
+
 	public static void next() throws InterruptedException {
-		//driver.findElement(By.xpath("/html/body/div[7]/div/div[2]/span")).click();
+		// driver.findElement(By.xpath("/html/body/div[7]/div/div[2]/span")).click();
 		next.click();
 	}
-	public static Step2 step1(String subject, String body) throws Exception{
-		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
-		
-		adddoc();
-		addrecipientdetails("prudhvicharanv@hotmail.com","prudhvicharanv");
-		subject(subject,body);
+
+	public static Step2 step1(String subject, String body) throws Exception {
+		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		// adddoc();
+		addrecipientdetails("prudhvicharanv@hotmail.com", "prudhvicharanv");
+		subject(subject, body);
 		Thread.sleep(3000);
 		next();
-		Step2 step2 = new Step2(driver,logger);
+		Step2 step2 = new Step2(driver, logger);
 		PageFactory.initElements(driver, step2);
 		return step2;
 	}

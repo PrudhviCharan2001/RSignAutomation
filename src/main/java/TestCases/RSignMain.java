@@ -2,12 +2,12 @@ package TestCases;
 
 import java.util.Hashtable;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import com.aventstack.extentreports.ExtentTest;
-
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import PageClasses.Envelopespage;
 import PageClasses.Homepage;
 import PageClasses.Loginpage;
@@ -16,13 +16,12 @@ import PageClasses.Settingspage;
 import PageClasses.Step2;
 import PageClasses.Templatespage;
 import baseClasses.BaseTestClass;
-import baseClasses.PageBaseClass;
 import baseClasses.TopMenuClass;
-import signingpage.yahoosign;
+import signingpage.Signing;
 import utilities.TestDataProvider;
 
 public class RSignMain extends BaseTestClass {
-	
+
 	ExtentTest logger;
 	TopMenuClass topmenu;
 	Homepage homepage;
@@ -30,81 +29,78 @@ public class RSignMain extends BaseTestClass {
 	Envelopespage envelopespage;
 	Settingspage settingspage;
 	Step2 step2;
-	yahoosign yahoo;
+	Signing yahoo;
 	Templatespage templatepage;
-	static int i=2;
-	
-	@Test(dataProvider = "getDatadoRsignLanguagesTest")
+	static int i = 3;
+
+	@Test(dataProvider = "RsignLanguagesTest")
 	public void rsignimanagegerman(Hashtable<String, String> dataTable) throws Exception {
-		logger = report.createTest("create RSign Test : ");
-		System.out.println("Execution started");
+		logger = report.createTest("RSign Test for"+dataTable.get("language"));
 		invokeBrowser("chrome");
-		System.out.println("Chrome opened");
+		logger.log(Status.INFO, "Chrome opened");
 		Loginpage loginpage = new Loginpage(driver, logger);
-		homepage = loginpage.sso();
-		System.out.println("Login completed");
+		homepage = loginpage.sso("prudhvi.vu@rpostlabs.com", "Ch@ran142!");
 		topmenu = homepage.topmenu();
-		//------------------------------------Multi signer static template-------------------------------------------------------------
+		/* ---------------------------------------Multi signer static template-----------------------------------------------------------*/
+//		logger.log(Status.INFO,MarkupHelper.createLabel("Creating multi signer static template", ExtentColor.GREEN));
+//		templatepage = topmenu.templatespage();
+//		templatepage = templatepage.createmultistatictemp(dataTable.get("MultiSignerStaticTemplatename"));
+//		logger.log(Status.INFO,MarkupHelper.createLabel("Signing multi signer static template", ExtentColor.GREEN));
+//		templatepage.consumemultisignerstatictemplate(dataTable.get("MultiSignerStaticTemplatename"));
+//		/* ---------------------------------------Single signer static template-----------------------------------------------------------*/
+//		templatepage = topmenu.templatespage();
+//		logger.log(Status.INFO,MarkupHelper.createLabel("Creating Single signer static template", ExtentColor.GREEN));
+//		templatepage = templatepage.createstatictemplate(dataTable.get("StaticTemplatename"));
+//		logger.log(Status.INFO,MarkupHelper.createLabel("Consuming single signer static template", ExtentColor.GREEN));
+//		templatepage.consumestatictemplate(dataTable.get("StaticTemplatename"));
+		/* ---------------------------------------Template-----------------------------------------------------------*/
 		templatepage = topmenu.templatespage();
-		templatepage = templatepage.createmultistatictemp(dataTable.get("MultiSignerStaticTemplatename"));
-		System.out.println("Multi signer static Template created");
-		templatepage.consumemultisignerstatictemplate(dataTable.get("MultiSignerStaticTemplatename"));
-		System.out.println("Multi signer static Template consumed");
-		//-------------------------------------Single signer static template------------------------------------------------------------
-		templatepage = topmenu.templatespage(); 
-		templatepage=templatepage.createstatictemplate(dataTable.get("StaticTemplatename"));
-		 System.out.println("single signer static Template created");
-		templatepage.consumestatictemplate(dataTable.get("StaticTemplatename"));
-		System.out.println("single signer static Template consumed");
-		//--------------------------------------Template------------------------------------------------------------
-		driver.navigate().refresh();
+		logger.log(Status.INFO,MarkupHelper.createLabel("Creating template", ExtentColor.GREEN));
+		templatepage = templatepage.createtemplate(dataTable.get("NonStaticTemplatename"));
+		logger.log(Status.INFO,MarkupHelper.createLabel("Consuming template", ExtentColor.GREEN));
+		envelopespage = templatepage.consumetemplate(dataTable.get("NonStaticTemplatename"));
+		Signing yahoo = new Signing(driver, logger);
+		logger.log(Status.INFO,MarkupHelper.createLabel("Logged and signing", ExtentColor.GREEN));
+		yahoo.recipientsigninoutlook("prudhvicharanv@hotmail.com", "Charan@2001");
+		topmenu = envelopespage.topmenu();
+		/* ---------------------------------------Rule-----------------------------------------------------------*/
 		templatepage = topmenu.templatespage();
-		templatepage=templatepage.createtemplate(dataTable.get("NonStaticTemplatename"));
-		System.out.println("Template created");
-		envelopespage=templatepage.consumetemplate(dataTable.get("NonStaticTemplatename"));
-		System.out.println("Template sended");
-		yahoosign yahoo=new yahoosign(driver,logger);
-		System.out.println("hotmail login");
-		yahoo.recipientsigninoutlook();
-		System.out.println("Signing completed");
-		topmenu=envelopespage.topmenu();
-	//	---------------------------------------Rule------------------------------------------------------------
-		driver.navigate().refresh();
-		templatepage = topmenu.templatespage();
-		templatepage=templatepage.createrule(dataTable.get("Rulename"));
-		System.out.println("Rule created");
-		envelopespage=templatepage.consumerule(dataTable.get("Rulename"));
-		System.out.println("Rule sended");
-		topmenu=envelopespage.topmenu();
-		yahoosign yahoo1=new yahoosign(driver,logger);
-		System.out.println("yahoo login");
+		logger.log(Status.INFO,MarkupHelper.createLabel("Creating Rule", ExtentColor.RED));
+		templatepage = templatepage.createrule(dataTable.get("Rulename"));
+		logger.log(Status.PASS,MarkupHelper.createLabel("Consuming Rule", ExtentColor.GREEN));
+		envelopespage = templatepage.consumerule(dataTable.get("Rulename"));
+		Signing yahoo1 = new Signing(driver, logger);
+		logger.log(Status.INFO,MarkupHelper.createLabel("Login to mail and signing the rule", ExtentColor.GREEN));
 		yahoo1.recipientsigninoutlookwithoutlogin();
-		System.out.println("Signing completed");
-	//---------------------------------------Envelope-----------------------------------------------------------
-		sendpage=topmenu.sendpage();
-		driver.navigate().refresh();
-		System.out.println("start step-1");
-		step2=Sendpage.step1(dataTable.get("EnvelopeSubject"),dataTable.get("EnvelopeBody"));
-		System.out.println("start step-2");
+		topmenu = envelopespage.topmenu();
+		/* ---------------------------------------Envelope-----------------------------------------------------------*/
+		sendpage = topmenu.sendpage();
+		logger.log(Status.INFO,MarkupHelper.createLabel("Step-1 completed", ExtentColor.GREEN));
+		step2 = Sendpage.step1(dataTable.get("EnvelopeSubject"), dataTable.get("EnvelopeBody"));
+		logger.log(Status.INFO,MarkupHelper.createLabel("Step-1 completed", ExtentColor.GREEN));
 		step2.allcontrols();
-		System.out.println("envelope sent");
-		envelopespage=step2.sendbutton();
-		yahoosign yahoo2=new yahoosign(driver,logger);
-		System.out.println("yahoo login");
+		envelopespage = step2.sendbutton();
+		logger.log(Status.INFO,MarkupHelper.createLabel("Envelope sent", ExtentColor.GREEN));
+		envelopespage.resend();
+		logger.log(Status.INFO,MarkupHelper.createLabel("Envelope resend", ExtentColor.GREEN));
+		envelopespage.updateandresend();
+		logger.log(Status.INFO,MarkupHelper.createLabel("Envelope update and resend", ExtentColor.GREEN));
+		envelopespage.copy();
+		logger.log(Status.INFO,MarkupHelper.createLabel("Envelope copy", ExtentColor.GREEN));
+		Signing yahoo2 = new Signing(driver, logger);
+		logger.log(Status.INFO,MarkupHelper.createLabel("Login to mail and signing the rule", ExtentColor.GREEN));
 		yahoo2.recipientsigninoutlookwithoutlogin();
-		System.out.println("Signing completed");
-		//yahoo2.reverifysigner();
-		//-----------------------------------------Changing language-----------------------------------------------------------
-		topmenu=envelopespage.topmenu();
+		// yahoo2.reverifysigner();
+		/* ---------------------------------------Change language-----------------------------------------------------------*/
+		topmenu = envelopespage.topmenu();
 		System.out.println("Click on settings");
 		settingspage = topmenu.personalsettings();
 		settingspage.changelanguage(i);
 		System.out.println("Language changed");
 		i++;
 	}
-	
 	@DataProvider
-	public Object[][] getDatadoRsignLanguagesTest() {
+	public Object[][] RsignLanguagesTest() {
 		return TestDataProvider.getTestData("TestData_Testmanagement.xlsx", "Feature 1", "Test Three");
 	}
 }

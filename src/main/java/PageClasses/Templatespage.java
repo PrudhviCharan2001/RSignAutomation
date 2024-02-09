@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -16,7 +17,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 
@@ -120,18 +123,19 @@ public class Templatespage extends PageBaseClass {
 	}
 
 	public Templatespage createtemplate(String temp) throws AWTException, InterruptedException {
-		 LocalDateTime currentDateTime = LocalDateTime.now();
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	        String formattedDateTime = currentDateTime.format(formatter);
-	       tempname=temp+ " "+formattedDateTime;
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String formattedDateTime = currentDateTime.format(formatter);
+		tempname = temp + " " + formattedDateTime;
 		createtemplatenbtn.click();
 		Thread.sleep(2000);
 		addrole.click();
 		Thread.sleep(2000);
 		rolename.sendKeys("QA");
-		//	deliverymode.click();
-		//emailandmobiledeliverymode.click();
-		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		// deliverymode.click();
+		// emailandmobiledeliverymode.click();
+		// adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract
+		// &.pdf");
 		adddoc();
 		Sendpage.subject(tempname, tempname);
 		templatename.sendKeys(tempname);
@@ -171,17 +175,21 @@ public class Templatespage extends PageBaseClass {
 
 	public Templatespage createrule(String rule) throws AWTException, InterruptedException {
 		createtemplatenbtn.click();
+		waitForPageLoad();
 		Thread.sleep(1000);
 		addrole.click();
 		rolename.sendKeys("QA");
-		 LocalDateTime currentDateTime = LocalDateTime.now();
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	        String formattedDateTime = currentDateTime.format(formatter);
-	       rulename=rule+ " "+formattedDateTime;
-		//deliverymode.click();
-		//emailandmobiledeliverymode.click();
-		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String formattedDateTime = currentDateTime.format(formatter);
+		rulename = rule + " " + formattedDateTime;
+		// deliverymode.click();
+		// emailandmobiledeliverymode.click();
+		// adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract
+		// &.pdf");
+		waitForPageLoad();
 		adddoc();
+		waitForPageLoad();
 		Sendpage.subject(rulename, rulename);
 		templatename.sendKeys(rulename);
 		templatedescription.sendKeys(rulename);
@@ -207,36 +215,42 @@ public class Templatespage extends PageBaseClass {
 		ruledonebtn.click();
 		Thread.sleep(5000);
 		waitForPageLoad();
-		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		// adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract
+		// &.pdf");
 		adddoc();
+		waitForPageLoad();
 		addrecipientdetails("prudhvicharanv@hotmail.com", "prudhvi");
 		Thread.sleep(5000);
-		//next();
+		// next();
 		driver.findElement(By.xpath("//*[@id='step1NextButton']")).click();
-		Thread.sleep(3000);
+		Thread.sleep(20000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(sendbutton));
 		sendbutton();
 		Envelopespage envelopespage = new Envelopespage(driver, logger);
 		PageFactory.initElements(driver, envelopespage);
 		return envelopespage;
 	}
+
 	public static String statictemplate;
+
 	public Templatespage createstatictemplate(String templatenametable) throws AWTException, InterruptedException {
 		createtemplatenbtn.click();
-		 LocalDateTime currentDateTime = LocalDateTime.now();
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	        String formattedDateTime = currentDateTime.format(formatter);
-	       statictemplate=templatenametable+ " "+formattedDateTime;
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String formattedDateTime = currentDateTime.format(formatter);
+		statictemplate = templatenametable + " " + formattedDateTime;
 		Thread.sleep(1000);
 		addrole.click();
 		Thread.sleep(1000);
 		rolename.sendKeys("QA");
-		Thread.sleep(1000);
-		Thread.sleep(1000);
-		//deliverymode.click();
-		//emailandmobiledeliverymode.click();
-		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		waitForPageLoad();
+		// deliverymode.click();
+		// emailandmobiledeliverymode.click();
+		// adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract
+		// &.pdf");
 		adddoc();
-		Thread.sleep(1000);
+		waitForPageLoad();
 		Sendpage.subject(statictemplate, statictemplate);
 		Thread.sleep(1000);
 		templatename.sendKeys(statictemplate);
@@ -265,8 +279,9 @@ public class Templatespage extends PageBaseClass {
 		driver.get(staticlinktext);
 		waitForPageLoad();
 		ss_ctb_email.sendKeys("prudhvicharanv@hotmail.com");
-		//ss_ctb_mobile.sendKeys("7032997552");
+		// ss_ctb_mobile.sendKeys("7032997552");
 		ss_ctb_acceptterms.click();
+		Thread.sleep(2000);
 		ss_ctb_nextbtn.click();
 		waitForPageLoad();
 		termsandservice.click();
@@ -308,21 +323,25 @@ public class Templatespage extends PageBaseClass {
 
 	static int count = 2;
 	public static String multistatictemplate;
+
 	public Templatespage createmultistatictemp(String templatenametable) throws Exception {
 		createtemplatenbtn.click();
 		LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDateTime = currentDateTime.format(formatter);
-       multistatictemplate=templatenametable+ " "+formattedDateTime;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String formattedDateTime = currentDateTime.format(formatter);
+		multistatictemplate = templatenametable + " " + formattedDateTime;
 		Thread.sleep(1000);
 		for (int i = 1; i <= count; i++) {
 			addrole.click();
 			driver.findElement(By.xpath("(//*[contains(@class,'roleName')])[" + i + "]")).sendKeys("QA" + i);
-			//driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown deliveryMode')])[" + i + "]")).click();
-			//driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown deliveryMode')]/ul/li[3])[" + i + "]"))
-					//.click();
+			// driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown
+			// deliveryMode')])[" + i + "]")).click();
+			// driver.findElement(By.xpath("(//*[contains(@class,'custom dropdown
+			// deliveryMode')]/ul/li[3])[" + i + "]"))
+			// .click();
 		}
-		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		// adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract
+		// &.pdf");
 		waitForPageLoad();
 		adddoc();
 		waitForPageLoad();
@@ -332,7 +351,7 @@ public class Templatespage extends PageBaseClass {
 		enablestatictemplate.click();
 		driver.findElement(By.xpath("//*[@id='btnNext']")).click();
 		waitForPageLoad();
-		for (int i = 1; i <= 2; i++) {
+		for (int i = 1; i <= count; i++) {
 			allcontrols(i);
 		}
 		saveas.click();
@@ -356,7 +375,7 @@ public class Templatespage extends PageBaseClass {
 		Select select = new Select(selectrole);
 		select.selectByIndex(1);
 		ss_ctb_email.sendKeys("prudhvicharanv@hotmail.com");
-		//ss_ctb_mobile.sendKeys("7032997552");
+		// ss_ctb_mobile.sendKeys("7032997552");
 		ss_ctb_acceptterms.click();
 		ss_ctb_nextbtn.click();
 		waitForPageLoad();
@@ -367,7 +386,7 @@ public class Templatespage extends PageBaseClass {
 		sel.selectByIndex(1);
 		invitesignername.sendKeys("prudhvi");
 		invitesigneremail.sendKeys("vulliprudhvicharan@yahoo.com");
-		//invitesignermobile.sendKeys("6300431674");
+		// invitesignermobile.sendKeys("6300431674");
 		invitesignermydetails.click();
 		invitesignermyname.sendKeys("charan");
 		invitesignersubmit.click();
@@ -407,7 +426,6 @@ public class Templatespage extends PageBaseClass {
 		PageFactory.initElements(driver, templatepage);
 		return templatepage;
 	}
-
 
 	public TopMenuClass topmenu() {
 		return topmenu;

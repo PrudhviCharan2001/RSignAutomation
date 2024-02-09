@@ -44,57 +44,56 @@ public class TopMenuClass extends PageBaseClass {
 	public WebElement personalsettings;
 	
 	public Loginpage singOutApplication() {
-		logger.log(Status.INFO, "Clicking the Sing-Out Link");
 		signout.click();
-		logger.log(Status.PASS, "Clicked the Sing-Out Link");
+		logger.log(Status.PASS, "Click the Sing-Out Link");
 		Loginpage loginpage = new Loginpage(driver, logger);
 		PageFactory.initElements(driver, loginpage);
 		return loginpage;
 	}
 	public Homepage hompage() {
-		logger.log(Status.INFO, "Clicking the hompage Link");
+		driver.navigate().refresh();
 		homepage.click();
-		logger.log(Status.PASS, "Clicked the hompage Link");
+		logger.log(Status.PASS, "Click the hompage Link");
 		Homepage homepage = new Homepage(driver, logger);
 		PageFactory.initElements(driver, homepage);
 		return homepage;
 	}
 	public Sendpage sendpage() {
-		//logger.log(Status.INFO, "Clicking the sendpage Link");
+		driver.navigate().refresh();
 		sendpage.click();
-		//logger.log(Status.PASS, "Clicked the sendpage Link");
+		logger.log(Status.PASS, "Click the sendpage Link");
 		Sendpage sendpage = new Sendpage(driver, logger);
 		PageFactory.initElements(driver, sendpage);
 		return sendpage;
 	}
 	public Templatespage templatespage() {
-		logger.log(Status.INFO, "Clicking the templatespage Link");
+		driver.navigate().refresh();
 		templatespage.click();
-		logger.log(Status.PASS, "Clicked the templatespage Link");
+		logger.log(Status.PASS, "Click the templatespage Link");
 		Templatespage templatespage = new Templatespage(driver, logger);
 		PageFactory.initElements(driver, templatespage);
 		return templatespage;
 	}
 	public Envelopespage envelopespage() {
-		logger.log(Status.INFO, "Clicking the envelopespage Link");
+		driver.navigate().refresh();
 		envelopespage.click();
-		logger.log(Status.PASS, "Clicked the envelopespage Link");
+		logger.log(Status.PASS, "Click the envelopespage Link");
 		Envelopespage envelopespage = new Envelopespage(driver, logger);
 		PageFactory.initElements(driver, envelopespage);
 		return envelopespage;
 	}
 	public Settingspage settingspage() {
-		logger.log(Status.INFO, "Clicking the settingspage Link");
+		driver.navigate().refresh();
 		settingspage.click();
-		logger.log(Status.PASS, "Clicked the settingspage Link");
+		logger.log(Status.PASS, "Click the settingspage Link");
 		Settingspage settingspage = new Settingspage(driver, logger);
 		PageFactory.initElements(driver, settingspage);
 		return settingspage;
 	}
 	public Settingspage personalsettings() {
-		logger.log(Status.INFO, "Clicking the settingspage Link");
+		driver.navigate().refresh();
 		personalsettings.click();
-		logger.log(Status.PASS, "Clicked the settingspage Link");
+		logger.log(Status.PASS, "Click the settingspage Link");
 		Settingspage settingspage = new Settingspage(driver, logger);
 		PageFactory.initElements(driver, settingspage);
 		return settingspage;

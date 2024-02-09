@@ -35,6 +35,7 @@ import PageClasses.Envelopespage;
 import PageClasses.Homepage;
 import PageClasses.Sendpage;
 import utilities.DateUtil;
+import utilities.GetLinkStatus;
 
 public class PageBaseClass extends BaseTestClass {
 
@@ -49,9 +50,9 @@ public class PageBaseClass extends BaseTestClass {
 	public static WebElement yahoologinbtn;
 	@FindBy(xpath = "//*[contains(@type,'submit')]")
 	public static WebElement staysignedin;
-	@FindBy(xpath = "(//*[@title='rsign@rsign.rpost.net'])[1]")
+	@FindBy(xpath = "(//*[@title='rsign@r1.rpost.net'])[1]")
 	public static WebElement openmail;
-	@FindBy(xpath = "//*[contains(@href,'https://sign.use.rsign.com//SignDocument/Index')]")
+	@FindBy(xpath = "//*[contains(@href,'//SignDocument/Index')]")
 	public static WebElement viewandsigndocument;
 	@FindBy(xpath = "//*[@id='btnContinueTermsAndService']")
 	public static WebElement termsandservice;
@@ -155,7 +156,7 @@ public class PageBaseClass extends BaseTestClass {
 	@FindBy(xpath = "(//*[@id='1'])")
 	public WebElement document;
 
-	@FindBy(xpath = "(//*[@id='btnSend'])")
+	@FindBy(xpath = "//*[contains(@class,'documentnavButtonGrp')]/div[1]/a[@id='btnSend']")
 	public WebElement sendbutton;
 
 	@FindBy(xpath = "(//*[@name='txtDropDownOption'])")
@@ -326,6 +327,7 @@ public class PageBaseClass extends BaseTestClass {
 		wait.until(ExpectedConditions.elementToBeClickable(signature));
 		act.dragAndDrop(signature, document).build().perform();
 		wait.until(ExpectedConditions.elementToBeClickable(controldone));
+		Thread.sleep(500);
 		controldone.click();
 		JavascriptExecutor jsx = (JavascriptExecutor) driver;
 		jsx.executeScript("window.scrollBy(0,80);", "");
@@ -337,8 +339,10 @@ public class PageBaseClass extends BaseTestClass {
 		Actions act = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(initial));
+		Thread.sleep(1000);
 		act.dragAndDrop(initial, document).build().perform();
 		wait.until(ExpectedConditions.elementToBeClickable(controldone));
+		Thread.sleep(500);
 		logger.log(Status.INFO, "Clicking done in intial control popup");
 		controldone.click();
 		logger.log(Status.INFO, "Scrolling the page");
@@ -352,6 +356,7 @@ public class PageBaseClass extends BaseTestClass {
 		Actions act = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(dateandtimestamp));
+		Thread.sleep(1000);
 		act.dragAndDrop(dateandtimestamp, document).build().perform();
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(controldone));
@@ -368,6 +373,7 @@ public class PageBaseClass extends BaseTestClass {
 		Actions act = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(name));
+		Thread.sleep(1000);
 		act.dragAndDrop(name, document).build().perform();
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(controldone));
@@ -384,6 +390,7 @@ public class PageBaseClass extends BaseTestClass {
 		Actions act = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(title));
+		Thread.sleep(1000);
 		act.dragAndDrop(title, document).build().perform();
 		wait.until(ExpectedConditions.elementToBeClickable(controldone));
 		logger.log(Status.INFO, "Clicking done in title control popup");
@@ -830,12 +837,12 @@ public class PageBaseClass extends BaseTestClass {
 		jsx.executeScript("window.scrollBy(0,30);", "");
 	}
 	
-	public Envelopespage sendbutton() {
-		sendbutton.click();
-		Envelopespage envelopestab = new Envelopespage(driver, logger);
-		PageFactory.initElements(driver, envelopestab);
-		return envelopestab;
-	}
+//	public Envelopespage sendbutton() {
+//		sendbutton.click();
+//		Envelopespage envelopestab = new Envelopespage(driver, logger);
+//		PageFactory.initElements(driver, envelopestab);
+//		return envelopestab;
+//	}
 
 	public void allcontrols() throws InterruptedException {
 		signature();
@@ -870,7 +877,13 @@ public class PageBaseClass extends BaseTestClass {
 		text(i);
 		// label();
 	}
-
+	public  Envelopespage sendbutton() throws InterruptedException {
+		sendbutton.click();
+		Thread.sleep(6000);
+		Envelopespage envelopestab = new Envelopespage(driver,logger);
+		PageFactory.initElements(driver, envelopestab);
+		return envelopestab;
+	}
 	public static void adddocument(String filepath) throws AWTException {
 		adddocument.click();
 		localdriver.click();
@@ -916,13 +929,16 @@ public static void robot() throws AWTException {
 	r.keyRelease(KeyEvent.VK_DOWN);
 }
 public static void adddoc() throws InterruptedException {
+	Thread.sleep(2000);
 	adddocument.click();
 	Thread.sleep(2000);
    driver.findElement(By.xpath("//*[@id='SkyDriveUpload']")).click();
    Thread.sleep(2000);
    ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
 	driver.switchTo().window(tab.get(1));
-	Thread.sleep(2000);
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+	wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("(//*[text()='API contract &.pdf'])[1]"))));
+	Thread.sleep(5000);
 //	driver.findElement(By.xpath("//*[@type='email']")).sendKeys("prudhvicharanv@hotmail.com");
 //	driver.findElement(By.xpath("//*[@type='submit']")).click();
 //	driver.findElement(By.xpath("//*[@type='password']")).sendKeys("Charan@2001");
@@ -944,7 +960,19 @@ public static void adddoc() throws InterruptedException {
 
 	public static void next() throws InterruptedException {
 		driver.findElement(By.xpath("//*[@id='step1NextButton']")).click();
-		next.click();
+		//next.click();
+	}
+	public static void invalidlinks() {
+		List<WebElement> links = driver.findElements(By.tagName("a"));
+		 
+		System.out.println("Number of Links are : " + links.size());
+ 
+		for (WebElement link : links) {
+			String URL = link.getAttribute("href");
+			GetLinkStatus.verifyLink(URL);
+		}
+		System.out.println("Total Number of Broken Links :");
+		GetLinkStatus.getInvalidLinkCount();
 	}
 
 }
