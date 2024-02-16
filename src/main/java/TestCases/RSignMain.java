@@ -69,7 +69,7 @@ public class RSignMain extends BaseTestClass {
 		logger.log(Status.INFO,MarkupHelper.createLabel("Creating Rule", ExtentColor.RED));
 		templatepage = templatepage.createrule(dataTable.get("Rulename"));
 		logger.log(Status.PASS,MarkupHelper.createLabel("Consuming Rule", ExtentColor.GREEN));
-		envelopespage = templatepage.consumerule(dataTable.get("Rulename" , int aa));
+		envelopespage = templatepage.consumerule(dataTable.get("Rulename" ),aa);
 		Signing yahoo1 = new Signing(driver, logger);
 		logger.log(Status.INFO,MarkupHelper.createLabel("Login to mail and signing the rule", ExtentColor.GREEN));
 		yahoo1.recipientsigninoutlookwithoutlogin(aa);
