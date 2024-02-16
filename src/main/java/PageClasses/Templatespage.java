@@ -218,7 +218,7 @@ public class Templatespage extends PageBaseClass {
 		return templatepage;
 	}
 
-	public Envelopespage consumerule(String rule) throws Exception {
+	public Envelopespage consumerule(String rule, int aa) throws Exception {
 		try {
 		topmenu().sendpage();
 		addrule.click();
@@ -233,6 +233,7 @@ public class Templatespage extends PageBaseClass {
 		// &.pdf");
 		adddoc();
 		waitForPageLoad();
+		accessauth(aa);
 		addrecipientdetails("prudhvicharanv@hotmail.com", "prudhvi");
 		Thread.sleep(5000);
 		// next();
