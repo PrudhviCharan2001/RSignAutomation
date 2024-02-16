@@ -61,15 +61,22 @@ public class Sendpage extends PageBaseClass {
 		next.click();
 	}
 
-	public static Step2 step1(String subject, String body) throws Exception {
+	public static Step2 step1(String subject, String body, int aa) throws Exception {
 		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		try {
 		 adddoc();
 		addrecipientdetails("prudhvicharanv@hotmail.com", "prudhvicharanv");
+		accessauth(aa);
 		subject(subject, body);
 		Thread.sleep(3000);
 		next();
+		}
+		 catch(Exception e) {
+				reportFail(e.getMessage());
+			}
 		Step2 step2 = new Step2(driver, logger);
 		PageFactory.initElements(driver, step2);
 		return step2;
 	}
+		 
 }

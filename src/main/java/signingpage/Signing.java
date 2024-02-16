@@ -95,18 +95,31 @@ public class Signing extends PageBaseClass {
 		Thread.sleep(5000);
 	}
 
-	public void recipientsigninoutlookwithoutlogin() throws InterruptedException, AWTException {
+	public void recipientsigninoutlookwithoutlogin(int aa) throws InterruptedException, AWTException {
 		((JavascriptExecutor) driver).executeScript("window.open()");
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
-		driver.get(
-				"https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=18&ct=1702203337&rver=7.0.6738.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fcobrandid%3dab0455a0-8d03-46b9-b18b-df2f57b9e44c%26nlp%3d1%26deeplink%3dowa%252f%253frealm%253dhotmail.com%26RpsCsrfState%3d6a2a7847-ad0f-6eae-3c15-fb950763897d&id=292841&aadredir=1&whr=hotmail.com&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=ab0455a0-8d03-46b9-b18b-df2f57b9e44c");
+		driver.get("https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=18&ct=1702203337&rver=7.0.6738.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fcobrandid%3dab0455a0-8d03-46b9-b18b-df2f57b9e44c%26nlp%3d1%26deeplink%3dowa%252f%253frealm%253dhotmail.com%26RpsCsrfState%3d6a2a7847-ad0f-6eae-3c15-fb950763897d&id=292841&aadredir=1&whr=hotmail.com&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=ab0455a0-8d03-46b9-b18b-df2f57b9e44c");
 		Thread.sleep(3000);
 		driver.navigate().refresh();
 		driver.navigate().refresh();
 		Thread.sleep(7000);
 		openmail.click();
 		viewandsigndocument.click();
+		if(aa==2) {
+			password.sendKeys(code);
+			submit.click();
+		}
+		if(aa==4) {
+			ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tab.get(1));
+			Thread.sleep(7000);
+			openmail.click();
+			String code = verificationcode.getText();
+			driver.switchTo().window(tab.get(2));
+			password.sendKeys(code);
+			submit.click();
+		}
 		ArrayList<String> tab = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab.get(2));
 		waitForPageLoad();
@@ -159,10 +172,7 @@ public class Signing extends PageBaseClass {
 		Thread.sleep(10000);
 		driver.navigate().refresh();
 		openmail.click();
-		String code = driver
-				.findElement(By.xpath(
-						"//*[text()='Verification Code:']//parent::b//parent::p//parent::td//parent::tr/td[2]/span"))
-				.getText();
+		String code = verificationcode.getText();
 		driver.switchTo().window(tab.get(2));
 		driver.findElement(By.xpath("//*[@id='ConfirmSubmitVerificationCode']")).sendKeys(code);
 		driver.findElement(By.xpath("//*[@id='btnValidateConfirmCode']")).click();

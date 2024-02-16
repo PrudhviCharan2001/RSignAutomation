@@ -123,6 +123,7 @@ public class Templatespage extends PageBaseClass {
 	}
 
 	public Templatespage createtemplate(String temp) throws AWTException, InterruptedException {
+		try {
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		String formattedDateTime = currentDateTime.format(formatter);
@@ -145,13 +146,17 @@ public class Templatespage extends PageBaseClass {
 		allcontrols();
 		saveas.click();
 		saveastemplate.click();
-		waitForPageLoad();
+		waitForPageLoad();}
+		 catch(Exception e) {
+				reportFail(e.getMessage());
+			}
 		Templatespage templatepage = new Templatespage(driver, logger);
 		PageFactory.initElements(driver, templatepage);
 		return templatepage;
 	}
 
 	public Envelopespage consumetemplate(String temp) throws AWTException, InterruptedException {
+		try {
 		tempnametext = templatenametext.getText();
 		topmenu.sendpage();
 		addtemplatebtn.click();
@@ -167,13 +172,17 @@ public class Templatespage extends PageBaseClass {
 //		driver.findElement(By.id("step1NextButton")).click();
 //		Thread.sleep(3000);
 //		driver.findElement(By.id("btnSend")).click();
-		Thread.sleep(5000);
+		Thread.sleep(5000);}
+		 catch(Exception e) {
+				reportFail(e.getMessage());
+			}
 		Envelopespage envelopespage = new Envelopespage(driver, logger);
 		PageFactory.initElements(driver, envelopespage);
 		return envelopespage;
 	}
 
 	public Templatespage createrule(String rule) throws AWTException, InterruptedException {
+		try {
 		createtemplatenbtn.click();
 		waitForPageLoad();
 		Thread.sleep(1000);
@@ -200,12 +209,17 @@ public class Templatespage extends PageBaseClass {
 		saveasrule.click();
 		Thread.sleep(6000);
 		waitForPageLoad();
+	}
+		 catch(Exception e) {
+				reportFail(e.getMessage());
+			}
 		Templatespage templatepage = new Templatespage(driver, logger);
 		PageFactory.initElements(driver, templatepage);
 		return templatepage;
 	}
 
 	public Envelopespage consumerule(String rule) throws Exception {
+		try {
 		topmenu().sendpage();
 		addrule.click();
 		searchrule.sendKeys(rulename);
@@ -227,6 +241,9 @@ public class Templatespage extends PageBaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(sendbutton));
 		sendbutton();
+	} catch(Exception e) {
+				reportFail(e.getMessage());
+			}
 		Envelopespage envelopespage = new Envelopespage(driver, logger);
 		PageFactory.initElements(driver, envelopespage);
 		return envelopespage;
@@ -235,6 +252,7 @@ public class Templatespage extends PageBaseClass {
 	public static String statictemplate;
 
 	public Templatespage createstatictemplate(String templatenametable) throws AWTException, InterruptedException {
+		try {
 		createtemplatenbtn.click();
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -264,12 +282,16 @@ public class Templatespage extends PageBaseClass {
 		saveastemplate.click();
 		waitForPageLoad();
 		Thread.sleep(10000);
+	}	 catch(Exception e) {
+				reportFail(e.getMessage());
+			}
 		Templatespage templatepage = new Templatespage(driver, logger);
 		PageFactory.initElements(driver, templatepage);
 		return templatepage;
 	}
 
 	public Templatespage consumestatictemplate(String templatenametable) throws AWTException, InterruptedException {
+		try {
 		driver.findElement(By.xpath("//*[@class='templateListTBody']/tr/td[@class='templateName']/div[text()='"
 				+ statictemplate + "']//parent::div//parent::td//parent::tr/td[8]/a")).click();
 		String staticlinktext = copystaticlink.getText();
@@ -316,6 +338,9 @@ public class Templatespage extends PageBaseClass {
 		driver.switchTo().window(tabs.get(0));
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//*[@class='cancel btn'])[4]")).click();
+	}	 catch(Exception e) {
+				reportFail(e.getMessage());
+			}
 		Templatespage templatepage = new Templatespage(driver, logger);
 		PageFactory.initElements(driver, templatepage);
 		return templatepage;
@@ -325,6 +350,7 @@ public class Templatespage extends PageBaseClass {
 	public static String multistatictemplate;
 
 	public Templatespage createmultistatictemp(String templatenametable) throws Exception {
+		try {
 		createtemplatenbtn.click();
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -357,6 +383,9 @@ public class Templatespage extends PageBaseClass {
 		saveas.click();
 		saveastemplate.click();
 		waitForPageLoad();
+	} catch(Exception e) {
+				reportFail(e.getMessage());
+			}
 		Templatespage templatepage = new Templatespage(driver, logger);
 		PageFactory.initElements(driver, templatepage);
 		return templatepage;
@@ -364,6 +393,7 @@ public class Templatespage extends PageBaseClass {
 
 	public Templatespage consumemultisignerstatictemplate(String templatenametable)
 			throws AWTException, InterruptedException {
+		try {
 		driver.findElement(By.xpath("//*[@class='templateListTBody']/tr/td[@class='templateName']/div[text()='"
 				+ multistatictemplate + "']//parent::div//parent::td//parent::tr/td[8]/a")).click();
 		String multistaticlinktext = copystaticlink.getText();
@@ -422,11 +452,16 @@ public class Templatespage extends PageBaseClass {
 		driver.switchTo().window(tabs.get(0));
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//*[@class='cancel btn'])[4]")).click();
+		
+	}
+
+	 catch(Exception e) {
+			reportFail(e.getMessage());
+		}
 		Templatespage templatepage = new Templatespage(driver, logger);
 		PageFactory.initElements(driver, templatepage);
 		return templatepage;
 	}
-
 	public TopMenuClass topmenu() {
 		return topmenu;
 	}

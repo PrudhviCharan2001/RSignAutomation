@@ -24,6 +24,7 @@ public class Step2 extends PageBaseClass{
 		
 	
 	public void allcontrols() throws InterruptedException {
+		try {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//*[@id='linkGetEnvelopeSettings']"))));
 		Thread.sleep(2000);
@@ -46,4 +47,7 @@ driver.findElement(By.xpath("//*[contains(@class,'viewSettingsClose')]")).click(
 		text();	
 		//label();	
 	}
-}
+		 catch(Exception e) {
+				reportFail(e.getMessage());
+			}
+}}

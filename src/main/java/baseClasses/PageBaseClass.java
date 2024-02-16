@@ -51,6 +51,8 @@ public class PageBaseClass extends BaseTestClass {
 	public static WebElement staysignedin;
 	@FindBy(xpath = "(//*[@title='rsign@r1.rpost.net'])[1]")
 	public static WebElement openmail;
+	@FindBy(xpath = "//*[text()='Verification Code:']//parent::b//parent::p//parent::td//parent::tr/td[2]/span")
+	public static WebElement verificationcode;
 	@FindBy(xpath = "//*[contains(@href,'//SignDocument/Index')]")
 	public static WebElement viewandsigndocument;
 	@FindBy(xpath = "//*[@id='btnContinueTermsAndService']")
@@ -85,7 +87,11 @@ public class PageBaseClass extends BaseTestClass {
 	public static WebElement finishbtn;
 	@FindBy(xpath = "(//*[@id='MessageSubject'])")
 	public static WebElement subject;
-
+	@FindBy(xpath = "//*[@type='password']")
+	public static WebElement password;
+	@FindBy(xpath = "//*[@type='submit']")
+	public static WebElement submit;
+	public String code="123";
 	@FindBy(xpath = "/html/body")
 	public static WebElement messagebody;
 
@@ -183,6 +189,13 @@ public class PageBaseClass extends BaseTestClass {
 	public static WebElement recipientemail;
 	@FindBy(xpath = "//*[contains(@class,'recipientMobile')]")
 	public static WebElement recipientmobile;
+	@FindBy(xpath = "(//*[contains(@id,'accessPassword')])[1]")
+	public static WebElement accessauthpassword;
+	@FindBy(xpath = "(//*[contains(@class,'reVerifySignerDocumentSubmit')])[1]/a[2]")
+	public static WebElement reverify_Y;
+	@FindBy(xpath = "(//*[contains(@class,'reVerifySignerDocumentSubmit')])[1]/a[1]")
+	public static WebElement reverify_N;
+	public static String authpassword="123";
 
 	public PageBaseClass(WebDriver driver, ExtentTest logger) {
 		this.driver = driver;
@@ -291,7 +304,7 @@ public class PageBaseClass extends BaseTestClass {
 	}
 
 	/****************** Reporting Functions ***********************/
-	public void reportFail(String reportString) {
+	public static void reportFail(String reportString) {
 		logger.log(Status.FAIL, reportString);
 		takeScreenShotOnFailure();
 		Assert.fail(reportString);
@@ -302,7 +315,7 @@ public class PageBaseClass extends BaseTestClass {
 	}
 
 	/****************** Capture Screen Shot ***********************/
-	public void takeScreenShotOnFailure() {
+	public static void takeScreenShotOnFailure() {
 		TakesScreenshot takeScreenShot = (TakesScreenshot) driver;
 		File sourceFile = takeScreenShot.getScreenshotAs(OutputType.FILE);
 
@@ -972,6 +985,20 @@ public static void adddoc() throws InterruptedException {
 		}
 		System.out.println("Total Number of Broken Links :");
 		GetLinkStatus.getInvalidLinkCount();
+	}
+	public static void accessauth(int i) {
+		driver.findElement(By.xpath("//*[contains(@class,'dropdown accessAuth open')]/ul/li["+i+"]")).click();
+		if(i==2 || i==3) {
+			accessauthpassword.sendKeys(authpassword);
+		}
+	}
+	public static void reverify(String option) {
+		if(option.equalsIgnoreCase("y")) {
+			reverify_Y.click();
+		}
+		else {
+			reverify_N.click();
+		}
 	}
 
 }

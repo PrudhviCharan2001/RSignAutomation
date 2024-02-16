@@ -31,7 +31,8 @@ public class RSignMain extends BaseTestClass {
 	Step2 step2;
 	Signing yahoo;
 	Templatespage templatepage;
-	static int i = 3;
+	static int i = 7, aa=2;
+	
 
 	@Test(dataProvider = "RsignLanguagesTest")
 	public void rsignimanagegerman(Hashtable<String, String> dataTable) throws Exception {
@@ -71,12 +72,12 @@ public class RSignMain extends BaseTestClass {
 		envelopespage = templatepage.consumerule(dataTable.get("Rulename"));
 		Signing yahoo1 = new Signing(driver, logger);
 		logger.log(Status.INFO,MarkupHelper.createLabel("Login to mail and signing the rule", ExtentColor.GREEN));
-		yahoo1.recipientsigninoutlookwithoutlogin();
+		yahoo1.recipientsigninoutlookwithoutlogin(aa);
 		topmenu = envelopespage.topmenu();
 		/* ---------------------------------------Envelope-----------------------------------------------------------*/
 		sendpage = topmenu.sendpage();
 		logger.log(Status.INFO,MarkupHelper.createLabel("Step-1 completed", ExtentColor.GREEN));
-		step2 = Sendpage.step1(dataTable.get("EnvelopeSubject"), dataTable.get("EnvelopeBody"));
+		step2 = Sendpage.step1(dataTable.get("EnvelopeSubject"), dataTable.get("EnvelopeBody"), aa);
 		logger.log(Status.INFO,MarkupHelper.createLabel("Step-1 completed", ExtentColor.GREEN));
 		step2.allcontrols();
 		envelopespage = step2.sendbutton();
@@ -89,7 +90,7 @@ public class RSignMain extends BaseTestClass {
 		logger.log(Status.INFO,MarkupHelper.createLabel("Envelope copy", ExtentColor.GREEN));
 		Signing yahoo2 = new Signing(driver, logger);
 		logger.log(Status.INFO,MarkupHelper.createLabel("Login to mail and signing the rule", ExtentColor.GREEN));
-		yahoo2.recipientsigninoutlookwithoutlogin();
+		yahoo2.recipientsigninoutlookwithoutlogin(aa);
 		// yahoo2.reverifysigner();
 		/* ---------------------------------------Change language-----------------------------------------------------------*/
 		topmenu = envelopespage.topmenu();
