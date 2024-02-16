@@ -31,7 +31,7 @@ public class RSignMain extends BaseTestClass {
 	Step2 step2;
 	Signing yahoo;
 	Templatespage templatepage;
-	static int i = 7, aa=2;
+	static int i = 1, aa=2;
 	
 
 	@Test(dataProvider = "RsignLanguagesTest")
