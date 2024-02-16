@@ -340,8 +340,8 @@ public class Templatespage extends PageBaseClass {
 			// deliveryMode')]/ul/li[3])[" + i + "]"))
 			// .click();
 		}
-		// adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract
-		// &.pdf");
+		Thread.sleep(5000);
+		// adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract&.pdf");
 		waitForPageLoad();
 		adddoc();
 		waitForPageLoad();

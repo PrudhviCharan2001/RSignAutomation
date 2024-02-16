@@ -100,9 +100,9 @@ public class Loginpage extends PageBaseClass {
 		logger.log(Status.PASS,"Logged into RSign");
 		driver.switchTo().window(tab.get(0));
 		waitForPageLoad();
-		Homepage sendpage = new Homepage(driver, logger);
-		PageFactory.initElements(driver, sendpage);
-		return sendpage;
+		Homepage homepage = new Homepage(driver, logger);
+		PageFactory.initElements(driver, homepage);
+		return homepage;
 	}
 
 	public Homepage rsignlogin(String email, String password) {

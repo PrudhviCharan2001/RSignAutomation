@@ -42,17 +42,17 @@ public class RSignMain extends BaseTestClass {
 		homepage = loginpage.sso("prudhvi.vu@rpostlabs.com", "Ch@ran142!");
 		topmenu = homepage.topmenu();
 		/* ---------------------------------------Multi signer static template-----------------------------------------------------------*/
-//		logger.log(Status.INFO,MarkupHelper.createLabel("Creating multi signer static template", ExtentColor.GREEN));
-//		templatepage = topmenu.templatespage();
-//		templatepage = templatepage.createmultistatictemp(dataTable.get("MultiSignerStaticTemplatename"));
-//		logger.log(Status.INFO,MarkupHelper.createLabel("Signing multi signer static template", ExtentColor.GREEN));
-//		templatepage.consumemultisignerstatictemplate(dataTable.get("MultiSignerStaticTemplatename"));
-//		/* ---------------------------------------Single signer static template-----------------------------------------------------------*/
-//		templatepage = topmenu.templatespage();
-//		logger.log(Status.INFO,MarkupHelper.createLabel("Creating Single signer static template", ExtentColor.GREEN));
-//		templatepage = templatepage.createstatictemplate(dataTable.get("StaticTemplatename"));
-//		logger.log(Status.INFO,MarkupHelper.createLabel("Consuming single signer static template", ExtentColor.GREEN));
-//		templatepage.consumestatictemplate(dataTable.get("StaticTemplatename"));
+		logger.log(Status.INFO,MarkupHelper.createLabel("Creating multi signer static template", ExtentColor.GREEN));
+		templatepage = topmenu.templatespage();
+		templatepage = templatepage.createmultistatictemp(dataTable.get("MultiSignerStaticTemplatename"));
+		logger.log(Status.INFO,MarkupHelper.createLabel("Signing multi signer static template", ExtentColor.GREEN));
+		templatepage.consumemultisignerstatictemplate(dataTable.get("MultiSignerStaticTemplatename"));
+		/* ---------------------------------------Single signer static template-----------------------------------------------------------*/
+		templatepage = topmenu.templatespage();
+		logger.log(Status.INFO,MarkupHelper.createLabel("Creating Single signer static template", ExtentColor.GREEN));
+		templatepage = templatepage.createstatictemplate(dataTable.get("StaticTemplatename"));
+		logger.log(Status.INFO,MarkupHelper.createLabel("Consuming single signer static template", ExtentColor.GREEN));
+		templatepage.consumestatictemplate(dataTable.get("StaticTemplatename"));
 		/* ---------------------------------------Template-----------------------------------------------------------*/
 		templatepage = topmenu.templatespage();
 		logger.log(Status.INFO,MarkupHelper.createLabel("Creating template", ExtentColor.GREEN));

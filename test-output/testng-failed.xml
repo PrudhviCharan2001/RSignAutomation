@@ -6,7 +6,7 @@
       <class name="TestCases.RSignMain">
         <methods>
           <include name="flushReports"/>
-          <include name="rsignimanagegerman" invocation-numbers="0"/>
+          <include name="rsignimanagegerman" invocation-numbers="0 3 7 11 13"/>
         </methods>
       </class> <!-- TestCases.RSignMain -->
     </classes>

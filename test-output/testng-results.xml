@@ -1,24 +1,463 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="14" passed="9" failed="5" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-09T12:43:45 IST" name="Default suite" finished-at="2024-02-09T12:57:16 IST" duration-ms="811770">
+  <suite started-at="2024-02-16T12:07:09 IST" name="Default suite" finished-at="2024-02-16T14:58:07 IST" duration-ms="10258740">
     <groups>
     </groups>
-    <test started-at="2024-02-09T12:43:45 IST" name="Default test" finished-at="2024-02-09T12:57:16 IST" duration-ms="811770">
+    <test started-at="2024-02-16T12:07:09 IST" name="Default test" finished-at="2024-02-16T14:58:07 IST" duration-ms="10258740">
       <class name="TestCases.RSignMain">
-        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-09T12:43:45 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-09T12:57:16 IST" duration-ms="810560" status="PASS">
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:07:09 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T12:23:44 IST" duration-ms="994352" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{Rulename=Rule Danish, NonStaticTemplatename=Non static template Danish, EnvelopeBody=Danish envelope body, EnvelopeSubject=Danish envelope subject, StaticTemplatename= static template Danish, MultiSignerStaticTemplatename=Multisigner static template Danish}]]>
+                <![CDATA[{Rulename=Rule Danish, NonStaticTemplatename=Template Danish, EnvelopeBody=Danish envelope body, EnvelopeSubject=Danish envelope subject, StaticTemplatename= static template Danish, MultiSignerStaticTemplatename=Multisigner static template Danish}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IndexOutOfBoundsException">
+            <message>
+              <![CDATA[Index 1 out of bounds for length 1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+at java.base/java.util.Objects.checkIndex(Objects.java:361)
+at java.base/java.util.ArrayList.get(ArrayList.java:427)
+at PageClasses.Settingspage.changelanguage(Settingspage.java:42)
+at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:98)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:23:44 IST" name="flushReports" finished-at="2024-02-16T12:23:44 IST" duration-ms="425" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:23:44 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T12:40:19 IST" duration-ms="995289" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Dutch, NonStaticTemplatename=Template Dutch, EnvelopeBody=Envelope body Dutch, EnvelopeSubject=Envelope Dutch, StaticTemplatename=static template Dutch, MultiSignerStaticTemplatename=Multisigner static template Dutch}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- rsignimanagegerman -->
-        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-09T12:57:16 IST" name="flushReports" finished-at="2024-02-09T12:57:16 IST" duration-ms="498" status="PASS">
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:40:19 IST" name="flushReports" finished-at="2024-02-16T12:40:20 IST" duration-ms="133" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:40:20 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T12:58:16 IST" duration-ms="1076150" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule English, NonStaticTemplatename=Template English, EnvelopeBody=Envelope body English, EnvelopeSubject=Envelope English, StaticTemplatename=Multisigner static template English, MultiSignerStaticTemplatename=Multisigner static template English}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:58:16 IST" name="flushReports" finished-at="2024-02-16T12:58:16 IST" duration-ms="125" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:58:16 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T12:59:24 IST" duration-ms="68319" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule French, NonStaticTemplatename=Template French, EnvelopeBody=Envelope body French, EnvelopeSubject=Envelope French, StaticTemplatename=static template French, MultiSignerStaticTemplatename=Multisigner static template French}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IndexOutOfBoundsException">
+            <message>
+              <![CDATA[Index 1 out of bounds for length 1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+at java.base/java.util.Objects.checkIndex(Objects.java:361)
+at java.base/java.util.ArrayList.get(ArrayList.java:427)
+at baseClasses.PageBaseClass.adddoc(PageBaseClass.java:937)
+at PageClasses.Templatespage.createmultistatictemp(Templatespage.java:346)
+at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:47)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:59:24 IST" name="flushReports" finished-at="2024-02-16T12:59:24 IST" duration-ms="105" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T12:59:24 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T13:15:55 IST" duration-ms="991148" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule German, NonStaticTemplatename=Template German, EnvelopeBody=Envelope body German, EnvelopeSubject=Envelope German, StaticTemplatename=static template German, MultiSignerStaticTemplatename=Multisigner static template German}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T13:15:55 IST" name="flushReports" finished-at="2024-02-16T13:15:56 IST" duration-ms="92" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T13:15:56 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T13:31:44 IST" duration-ms="948462" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Hungarian, NonStaticTemplatename=Template Hungarian, EnvelopeBody=Envelope body Hungarian, EnvelopeSubject=Envelope Hungarian, StaticTemplatename=static template Hungarian, MultiSignerStaticTemplatename=Multisigner static template Hungarian}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T13:31:44 IST" name="flushReports" finished-at="2024-02-16T13:31:44 IST" duration-ms="111" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T13:31:44 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T13:47:51 IST" duration-ms="966630" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Italian, NonStaticTemplatename=Template Italian, EnvelopeBody=Envelope body Italian, EnvelopeSubject=Envelope Italian, StaticTemplatename=static template Italian, MultiSignerStaticTemplatename=Multisigner static template Italian}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T13:47:51 IST" name="flushReports" finished-at="2024-02-16T13:47:51 IST" duration-ms="100" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T13:47:51 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T13:49:15 IST" duration-ms="84259" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Latvian, NonStaticTemplatename=Template Latvian, EnvelopeBody=Envelope body Latvian, EnvelopeSubject=Envelope Latvian, StaticTemplatename=static template Latvian, MultiSignerStaticTemplatename=Multisigner static template Latvian}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IndexOutOfBoundsException">
+            <message>
+              <![CDATA[Index 1 out of bounds for length 1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+at java.base/java.util.Objects.checkIndex(Objects.java:361)
+at java.base/java.util.ArrayList.get(ArrayList.java:427)
+at baseClasses.PageBaseClass.adddoc(PageBaseClass.java:937)
+at PageClasses.Templatespage.createmultistatictemp(Templatespage.java:346)
+at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:47)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T13:49:15 IST" name="flushReports" finished-at="2024-02-16T13:49:15 IST" duration-ms="107" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T13:49:15 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T14:05:50 IST" duration-ms="995128" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Lithuanian, NonStaticTemplatename=Template Lithuanian, EnvelopeBody=Envelope body Lithuanian, EnvelopeSubject=Envelope Lithuanian, StaticTemplatename=static template Lithuanian, MultiSignerStaticTemplatename=Multisigner static template Lithuanian}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:05:50 IST" name="flushReports" finished-at="2024-02-16T14:05:50 IST" duration-ms="100" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:05:50 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T14:22:53 IST" duration-ms="1022183" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Norwegian, NonStaticTemplatename=Template Norwegian, EnvelopeBody=Envelope body Norwegian, EnvelopeSubject=Envelope Norwegian, StaticTemplatename=static template Norwegian, MultiSignerStaticTemplatename=Multisigner static template Norwegian}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:22:53 IST" name="flushReports" finished-at="2024-02-16T14:22:53 IST" duration-ms="124" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:22:53 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T14:39:28 IST" duration-ms="995179" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Polish, NonStaticTemplatename=Template Polish, EnvelopeBody=Envelope body Polish, EnvelopeSubject=Envelope Polish, StaticTemplatename=static template Polish, MultiSignerStaticTemplatename=Multisigner static template Polish}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:39:28 IST" name="flushReports" finished-at="2024-02-16T14:39:28 IST" duration-ms="85" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:39:28 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T14:39:30 IST" duration-ms="2290" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Portuguese, NonStaticTemplatename=Template Portuguese, EnvelopeBody=Envelope body Portuguese, EnvelopeSubject=Envelope Portuguese, StaticTemplatename=static template Portuguese, MultiSignerStaticTemplatename=Multisigner static template Portuguese}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[invalid session id
+Build info: version: '4.17.0', revision: 'e52b1be057*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3cc9da9424d18958065f3860d71e9caf, setTimeout {implicit=120000}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.162, chrome: {chromedriverVersion: 121.0.6167.85 (3f98d690ad7e..., userDataDir: C:\Users\RPLPT\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49196}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49196/devtoo..., se:cdpVersion: 121.0.6167.162, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3cc9da9424d18958065f3860d71e9caf]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: '4.17.0', revision: 'e52b1be057*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3cc9da9424d18958065f3860d71e9caf, setTimeout {implicit=120000}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.162, chrome: {chromedriverVersion: 121.0.6167.85 (3f98d690ad7e..., userDataDir: C:\Users\RPLPT\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49196}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49196/devtoo..., se:cdpVersion: 121.0.6167.162, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3cc9da9424d18958065f3860d71e9caf
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:134)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:934)
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:929)
+at baseClasses.BaseTestClass.invokeBrowser(BaseTestClass.java:67)
+at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:39)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:39:30 IST" name="flushReports" finished-at="2024-02-16T14:39:31 IST" duration-ms="205" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:39:31 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T14:56:55 IST" duration-ms="1044131" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Romanian, NonStaticTemplatename=Template Romanian, EnvelopeBody=Envelope body Romanian, EnvelopeSubject=Envelope Romanian, StaticTemplatename=static template Romanian, MultiSignerStaticTemplatename=Multisigner static template Romanian}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:56:55 IST" name="flushReports" finished-at="2024-02-16T14:56:55 IST" duration-ms="94" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+        <test-method signature="rsignimanagegerman(java.util.Hashtable)[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:56:55 IST" name="rsignimanagegerman" data-provider="RsignLanguagesTest" finished-at="2024-02-16T14:58:07 IST" duration-ms="72413" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Rulename=Rule Spanish, NonStaticTemplatename=Template Spanish, EnvelopeBody=Envelope body Spanish, EnvelopeSubject=Envelope Spanish, StaticTemplatename=static template Spanish, MultiSignerStaticTemplatename=Multisigner static template Spanish}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IndexOutOfBoundsException">
+            <message>
+              <![CDATA[Index 1 out of bounds for length 1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+at java.base/java.util.Objects.checkIndex(Objects.java:361)
+at java.base/java.util.ArrayList.get(ArrayList.java:427)
+at baseClasses.PageBaseClass.adddoc(PageBaseClass.java:937)
+at PageClasses.Templatespage.createmultistatictemp(Templatespage.java:346)
+at TestCases.RSignMain.rsignimanagegerman(RSignMain.java:47)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rsignimanagegerman -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestCases.RSignMain@2a7ed1f]" started-at="2024-02-16T14:58:07 IST" name="flushReports" finished-at="2024-02-16T14:58:07 IST" duration-ms="77" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushReports -->

@@ -62,8 +62,8 @@ public class Sendpage extends PageBaseClass {
 	}
 
 	public static Step2 step1(String subject, String body) throws Exception {
-		adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
-		// adddoc();
+		//adddocument("C:\\Users\\RPLPT\\OneDrive\\Desktop\\RPost\\RSign\\API contract &.pdf");
+		 adddoc();
 		addrecipientdetails("prudhvicharanv@hotmail.com", "prudhvicharanv");
 		subject(subject, body);
 		Thread.sleep(3000);

@@ -33,7 +33,6 @@ import com.aventstack.extentreports.Status;
 
 import PageClasses.Envelopespage;
 import PageClasses.Homepage;
-import PageClasses.Sendpage;
 import utilities.DateUtil;
 import utilities.GetLinkStatus;
 
@@ -42,11 +41,11 @@ public class PageBaseClass extends BaseTestClass {
 	public static ExtentTest logger;
 	@FindBy(xpath = "//*[@name='loginfmt']")
 	public static WebElement yahooemail;
-	@FindBy(xpath = "//*[@value='Next']")
+	@FindBy(xpath = "//*[@type='submit']")
 	public static WebElement emailnextbtn;
 	@FindBy(xpath = "//*[@name='passwd']")
 	public static WebElement yahoopassword;
-	@FindBy(xpath = "//*[@value='Sign in']")
+	@FindBy(xpath = "//*[@type='submit']")
 	public static WebElement yahoologinbtn;
 	@FindBy(xpath = "//*[contains(@type,'submit')]")
 	public static WebElement staysignedin;

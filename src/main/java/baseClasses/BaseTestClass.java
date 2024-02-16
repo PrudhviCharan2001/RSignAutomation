@@ -6,6 +6,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -64,8 +65,8 @@ public class BaseTestClass {
 			System.out.println(e.getMessage());
 		}
 
-		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
 		driver.manage().window().maximize();
 
 	}
